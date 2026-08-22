@@ -1,0 +1,1103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-cream: #ffffff;
+  --bg-white: #ffffff;
+  --purple-main: #5b45d0;
+  --purple-light: #e8e3fc;
+  --purple-subtle: #f3f0fe;
+  --orange-accent: #ff8a52;
+  --text-dark: #221e29;
+  --text-muted: #6b6575;
+  --border-light: rgba(91, 69, 208, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-cream) !important;
+  color: var(--text-dark) !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* ---------------------------------------------------------------------------
+   ANNOUNCEMENT & NAVBAR
+--------------------------------------------------------------------------- */
+.top-announcement {
+  background: var(--purple-light);
+  color: var(--purple-main);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  width: 100%;
+}
+
+.landing-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: var(--bg-cream);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.brand-logo-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  color: var(--orange-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-purple-pill {
+  background: var(--purple-main);
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-purple-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(91, 69, 208, 0.3);
+}
+
+/* ---------------------------------------------------------------------------
+   HERO SECTION
+--------------------------------------------------------------------------- */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 60px 8% 80px 8%;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-headline {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.8rem;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+/* Sidebar Grouping & Section Labels */
+.sidebar-section-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #6b6575;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 20px 0 8px 8px;
+}
+
+/* Dynamic Sidebar Navigation Items */
+.sidebar-nav-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  background: transparent;
+  color: #201b38;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav-btn:hover {
+  background: #f3f0fe;
+  color: #5b45d0;
+}
+
+.sidebar-nav-btn.active {
+  background: #5b45d0;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(91, 69, 208, 0.2);
+}
+
+/* Sidebar Progress & Mentorship Widgets */
+.sidebar-widget-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.sidebar-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.sidebar-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8a52, #ec4899);
+  border-radius: 99px;
+}
+
+.mentor-avatar-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+/* ---------------------------------------------------------------------------
+   PHONE MOCKUPS & GLOW
+--------------------------------------------------------------------------- */
+.hero-mockup-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.warm-aura-glow {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(
+    circle, 
+    rgba(255, 138, 82, 0.45) 0%, 
+    rgba(251, 146, 60, 0.25) 45%, 
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.phone-card-white {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-cream);
+  border: 11px solid #1e1b2e;
+  border-radius: 46px;
+  width: 280px;
+  height: 520px;
+  padding: 14px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  text-align: left;
+}
+
+.phone-card-white.offset {
+  transform: translateY(32px) rotate(3deg);
+  margin-left: -48px;
+  z-index: 2;
+  background: #ffffff;
+}
+
+.dynamic-island {
+  width: 75px;
+  height: 18px;
+  background: #1e1b2e;
+  border-radius: 99px;
+  margin: 0 auto 12px auto;
+}
+
+.floating-seal-badge {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  z-index: 10;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #1e1b2e;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.1;
+  transform: rotate(12deg);
+}
+
+.phone-bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #6b6575;
+}
+
+.phone-bottom-nav .nav-item.active {
+  color: var(--purple-main);
+}
+
+/* ---------------------------------------------------------------------------
+   MASCOT & SUPERPOWER SECTIONS
+--------------------------------------------------------------------------- */
+.mascot-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 40px 0;
+  font-size: 2.5rem;
+}
+
+.purple-container-box {
+  background: var(--purple-light);
+  border-radius: 32px;
+  padding: 60px 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.superpower-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.power-card {
+  background: var(--bg-white);
+  border-radius: 18px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: transform 0.2s;
+}
+
+.power-card:hover { 
+  transform: translateY(-2px); 
+}
+
+/* ---------------------------------------------------------------------------
+   COMPARISON TABLE
+--------------------------------------------------------------------------- */
+.comparison-section {
+  /* background: var(--bg-white); */
+  background: rgb(207 169 212 / 65%);
+  border-radius: 32px;
+  padding: 50px;
+  max-width: 1000px;
+  margin: 60px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+
+.comparison-table th, .comparison-table td {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #f0edf5;
+}
+
+.comparison-table th:first-child, .comparison-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+}
+
+.check-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--purple-main);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* ---------------------------------------------------------------------------
+   DASHBOARD VIEW
+--------------------------------------------------------------------------- */
+.app-dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-cream);
+}
+
+.dash-sidebar {
+  width: 280px;
+  background: var(--bg-white);
+  border-right: 1px solid var(--border-light);
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-main {
+  flex: 1;
+  padding: 40px 56px;
+  max-width: 1100px;
+}
+
+/* Container Isolation */
+.hero-mockup-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  isolation: isolate;
+}
+
+/* Permanent Dark Blue & Light Blue Glow Shadow */
+/* Wide & Spread Blue Glow Shadow */
+.blue-aura-glow-fixed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;                 /* Size ko kafi bara kar diya hai taake door tak phely */
+  height: 750px;
+  background: radial-gradient(
+    circle,
+    rgba(29, 78, 216, 0.85) 0%,   /* Center me deep vibrant blue */
+    rgba(2, 132, 199, 0.65) 30%,   /* Sky blue spread */
+    rgba(56, 189, 248, 0.40) 55%,  /* Outer light blue diffusion */
+    rgba(147, 197, 253, 0.15) 75%, /* Soft gradient edge */
+    transparent 90%
+  );
+  border-radius: 50%;
+  filter: blur(80px);            /* Wide soft blur effect */
+  z-index: 1 !important;         /* Phones ke piche */
+  pointer-events: none;
+}
+
+/* Phone Cards with Additional Blue Drop Shadow Layer */
+.phone-card-white {
+  position: relative;
+  z-index: 2 !important;
+  background: #faf8f5;
+  border: 11px solid #1e1b2e;
+  border-radius: 46px;
+  width: 280px;
+  height: 520px;
+  padding: 14px;
+  /* Multi-layered shadow to ensure blue tint pops */
+  box-shadow: 
+    0 20px 40px rgba(29, 78, 216, 0.35),
+    0 0 80px rgba(56, 189, 248, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  text-align: left;
+}
+
+.phone-card-white.offset {
+  transform: translateY(32px) rotate(3deg);
+  margin-left: -48px;
+  z-index: 3 !important;
+  background: #ffffff;
+}
+
+/* Phone Card for Image Background */
+/* Phone Screen Cartoon Canvas */
+.phone-cartoon-screen {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-screen-bg {
+  background: linear-gradient(180deg, #fce7f3 0%, #fbcfe8 50%, #f472b6 100%);
+}
+
+.right-screen-bg {
+  background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 50%, #38bdf8 100%);
+}
+
+/* Cartoon Floating Animations */
+.cartoon-wrapper {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.floating-cartoon {
+  animation: floatBounce 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatBounce {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Speech / Text Bubble inside Cartoon */
+.cartoon-speech-bubble {
+  background: #ffffff;
+  color: #1e1b2e;
+  padding: 8px 14px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.cartoon-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+}
+
+/* ---------------------------------------------------------------------------
+   ENLARGED ORANGE & LIGHT PINK GRADIENT LOGO TEXT
+--------------------------------------------------------------------------- */
+.brand-logo-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem; /* Enlarged Font */
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff8a52 0%, #ff6b81 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo-text:hover {
+  transform: scale(1.02);
+}
+
+/* ---------------------------------------------------------------------------
+   NERDARENA 3-CARD FEATURE SECTION (MATCHING RILEY LAYOUT)
+--------------------------------------------------------------------------- */
+.nerd-features-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #201b38;
+}
+
+.nerd-features-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.nerd-sub-heading {
+  font-size: 1.15rem;
+  color: #6b6575;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.nerd-main-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #201b38;
+}
+
+/* 3 Column Cards Layout */
+.nerd-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.nerd-feature-card {
+  border-radius: 28px;
+  padding: 28px 24px 36px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nerd-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Backgrounds */
+.nerd-card-orange {
+  background-color: #ffaa5b;
+}
+
+.nerd-card-lavender {
+  background-color: #d8beff;
+}
+
+.nerd-card-yellow {
+  background-color: #fce46d;
+}
+
+/* Inner Mockup Area */
+.nerd-mockup-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* Mockup Style 1 */
+.nerd-badge-style {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 12px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #201b38;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+/* Mockup Style 2 */
+.nerd-quest-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 18px 20px;
+  width: 100%;
+  max-width: 260px;
+  box-shadow: 0 8px 25px rgba(91, 69, 208, 0.08);
+}
+
+.nerd-quest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.nerd-quest-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #5b45d0;
+}
+
+.nerd-xp-tag {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 4px 5px;
+  border-radius: 99px;
+}
+
+.nerd-quest-body .time-text {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #201b38;
+  margin-bottom: 2px;
+}
+
+.nerd-quest-body .sub-text {
+  font-size: 0.8rem;
+  color: #6b6575;
+}
+
+/* Mockup Style 3 */
+.nerd-mini-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.nerd-mini-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #201b38;
+  margin-bottom: 8px;
+}
+
+.nerd-mini-pills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.nerd-mini-pills .pill {
+  background-color: #f3f0fe;
+  color: #5b45d0;
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 99px;
+  font-weight: 800;
+}
+
+.nerd-mini-desc {
+  font-size: 0.72rem;
+  color: #6b6575;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.nerd-mini-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.nerd-btn-light {
+  border: 1px solid #826eb3;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #201b38;
+  cursor: pointer;
+}
+
+.nerd-btn-purple {
+  background-color: #5b45d0;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Card Content Typography */
+.nerd-card-content h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #201b38;
+}
+
+.nerd-card-content p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: center;
+  color: #201b38;
+}
+
+/* CTA Footer Wrapper */
+.nerd-cta-wrapper {
+  text-align: center;
+}
+
+.nerd-cta-button {
+  background-color: #5b45d0;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 16px 42px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nerd-cta-button:hover {
+  background-color: #4a36b5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(91, 69, 208, 0.3);
+}
+
+@media (max-width: 900px) {
+  .nerd-cards-container {
+    grid-template-columns: 1fr;
+  }
+  .nerd-main-heading {
+    font-size: 2.2rem;
+  }
+}
+
+/* Card 1 Mockup Center Layout */
+.nerd-card-orange .nerd-mockup-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+/* Small Centered Image Styling */
+.nerd-card-top-img {
+  width: 100%;
+  max-width: 235px; /* Chota size mid me fit karne ke liye */
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 40px auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.06));
+}
+
+/* ---------------------------------------------------------------------------
+   NERDARENA FOOTER SECTION (MATCHING REFERENCE DESIGN)
+--------------------------------------------------------------------------- */
+.nerd-footer-section {
+  width: 100%;
+  background-color: #faf8f5;
+  padding: 80px 20px 40px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #201b38;
+  border-top: 1px solid rgba(91, 69, 208, 0.08);
+}
+
+/* Top Banner Title & Button */
+.nerd-footer-banner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.nerd-footer-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #201b38;
+  margin-bottom: 28px;
+}
+
+.nerd-footer-cta-btn {
+  background-color: #5b45d0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nerd-footer-cta-btn:hover {
+  background-color: #4a36b5;
+  transform: translateY(-2px);
+}
+
+/* Mascot Row Strip */
+.nerd-mascot-strip {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 40px auto 60px auto;
+  max-width: 600px;
+}
+
+.nerd-mascot-strip svg {
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+}
+
+/* Bottom Footer Grid Layout (2-Column Grid without App Store) */
+.nerd-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Newsletter Input Box */
+.nerd-newsletter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nerd-newsletter-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #201b38;
+}
+
+.nerd-newsletter-form {
+  display: flex;
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px solid #e2dcf0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  max-width: 360px;
+}
+
+.nerd-newsletter-input {
+  border: none;
+  outline: none;
+  padding: 10px 18px;
+  border-radius: 99px;
+  flex: 1;
+  font-size: 0.88rem;
+  color: #201b38;
+}
+
+.nerd-newsletter-btn {
+  background-color: #5b45d0;
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 99px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nerd-newsletter-btn:hover {
+  background-color: #4a36b5;
+}
+
+/* Quick Links Grid */
+.nerd-footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.nerd-footer-links a {
+  color: #5b45d0;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.nerd-footer-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Brand Logo Bottom Footer */
+.nerd-footer-brand {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.nerd-footer-copyright {
+  font-size: 0.8rem;
+  color: #6b6575;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .nerd-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .nerd-newsletter-form {
+    margin: 0 auto;
+  }
+  .nerd-footer-title {
+    font-size: 2.2rem;
+  }
+}
+/* Dashboard Grid Layout with Right Panel */
+.app-dashboard-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px; /* Left Sidebar | Main Content | Right Panel */
+  min-height: 100vh;
+  background-color: #faf8f5;
+}
+
+/* Right Side Panel Styling */
+.dash-right-panel {
+  padding: 32px 24px;
+  background: #ffffff;
+  border-left: 1px solid rgba(91, 69, 208, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Aesthetic Cards inside Right Panel */
+.right-widget-card {
+  background: #faf8f5;
+  border: 1px solid rgba(91, 69, 208, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.right-widget-card.gradient-bg {
+  background: linear-gradient(135deg, #3a2b9b 0%, #ff7a5e 100%);
+  color: #ffffff;
+  color: #ffffff;
+  border: none;
+}
+
+.widget-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Activity Feed Item */
+.feed-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.feed-item:last-child {
+  border-bottom: none;
+}
+
+.feed-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f3f0fe;
+  color: #5b45d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+/* Leaderboard & Interactive Activity Styles */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.hover\:shadow-xs:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Quiz and Activity Card Styling */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #1e1b4b, #0f172a);
+}
+
+/* Custom Card Borders & Padding */
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.border-slate-100 {
+  border-color: #f1f5f9;
+}
+
+/* ATS LaTeX Resume Builder Enhancements */
+#latex-code-box {
+  background: #fcfcfc;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+#latex-source-view::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+#latex-source-view::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  border-color: #5b45d0 !important;
+  box-shadow: 0 0 0 3px rgba(91, 69, 208, 0.1);
+}
