@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://nerdarena-gamified-college-learning-app.onrender.com";
 async function apiPost(path, body) {
   const res = await fetch(`${API_BASE}${path}`, {
     method: "POST",
