@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://nerdarena-gamified-college-learning-app.onrender.com";
 const CURRENT_USER_ID = 1;
 
 async function apiGet(path) {
