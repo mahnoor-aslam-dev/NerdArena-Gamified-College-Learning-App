@@ -82,7 +82,7 @@ const Leaderboard = () => {
   const [activityStatus, setActivityStatus] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/user?user_id=1')
+    fetch('https://nerdarena-gamified-college-learning-app.onrender.com/user?user_id=1')
       .then(res => res.json())
       .then(data => setUser(data))
       .catch(err => console.error(err));
