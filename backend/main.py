@@ -1,3 +1,5 @@
+import os
+import requests
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -5,9 +7,8 @@ from typing import List, Optional
 from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, ForeignKey, DateTime, or_
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
-from google import genai
 from google.oauth2 import id_token
-from google.auth.transport import requests
+from google.auth.transport import requests as google_requests
 
 # ---------------------------------------------------------------------------
 # APP SETUP & MIDDLEWARE
@@ -22,10 +23,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ---------------------------------------------------------------------------
-# GEMINI AI SETUP
-# ---------------------------------------------------------------------------
-client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 # ---------------------------------------------------------------------------
 # DATABASE SETUP
 # ---------------------------------------------------------------------------
@@ -242,7 +239,7 @@ def google_login(payload: GoogleLoginRequest, db: Session = Depends(get_db)):
     try:
         idinfo = id_token.verify_oauth2_token(
             payload.credential, 
-            requests.Request(), 
+            google_requests.Request(), 
            "982892849647-668mnacv8lfd9864hjb24ki1k982spnm.apps.googleusercontent.com"
         )
 
@@ -400,12 +397,26 @@ def send_message(payload: MessageCreate, db: Session = Depends(get_db)):
 
     if payload.receiver_id == 999:
         try:
-            print("Sending request to Gemini...")
-            response = client.models.generate_content(
-                model="gemini-3.6-flash",
-                contents=f"Answer: {payload.text}",
-            )
-            reply_text = response.text
+            print("Sending request to Gemini via HTTP...")
+            token = "AQ.Ab8RN6I1JfizexkSO_82o4v0cYvT6iAh8LUEDXn9pN-5Y1NNfA"
+            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+            
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json"
+            }
+            body = {
+                "contents": [{
+                    "parts": [{"text": payload.text}]
+                }]
+            }
+            
+            resp = requests.post(url, headers=headers, json=body)
+            if resp.status_code == 200:
+                res_data = resp.json()
+                reply_text = res_data["candidates"][0]["content"]["parts"][0]["text"]
+            else:
+                reply_text = f"API Error Detail: {resp.status_code} - {resp.text}"
         except Exception as e:
             reply_text = f"API Error Detail: {str(e)}"
             print("GEMINI API ERROR:", str(e))
@@ -420,7 +431,7 @@ def send_message(payload: MessageCreate, db: Session = Depends(get_db)):
 
     return msg
 
-@app.get("/messages/{user1_id}/{user2_id}", response_model=List[MessageResponse])
+@app.get("/messages/{user1_id}/{user2_id}", response_process=List[MessageResponse]) # type: ignore
 def get_chat_history(user1_id: int, user2_id: int, db: Session = Depends(get_db)):
     messages = db.query(MessageModel).filter(
         or_(
